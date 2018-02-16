@@ -1,6 +1,9 @@
 <h1>Home Page</h1>
 <section class="room-box">
-  <div ui-view ng-repeat="room in home.rooms track by $index">
+  <div ui-view ng-repeat="room in home.rooms">
     {{ room.$value }}
+  </div>
+  <div ng-controller="ModalCtrl as modals">
+    <button type="button" class="btn" ng-click="modals.open()">New Room</button>
   </div>
 </section>
