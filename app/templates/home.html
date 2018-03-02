@@ -1,9 +1,16 @@
 <h1>Home Page</h1>
-<section class="room-box">
-  <div ui-view ng-repeat="room in home.rooms">
-    {{ room.$value }}
-  </div>
+<aside class="room-box">
+  <ul>
+    <li ng-repeat="room in room.rooms"><a ng-click="room.setCurrentRoom()">{{ room.$value }}</a></li>
+  </ul>
   <div ng-controller="ModalCtrl as modals">
     <button type="button" class="btn" ng-click="modals.open()">New Room</button>
   </div>
-</section>
+</aside>
+<div>
+  <div ng-repeat="message in room.messages">
+    <p><strong>{{ message.username }}</strong></p>
+    <p>{{ message.content }}</p>
+  </div>
+</div>
+<button ng-click="console.log('test')">hihi</button>

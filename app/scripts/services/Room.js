@@ -14,6 +14,10 @@
       });
     }
 
+    Room.setCurrentRoom = function(roomId) {
+      Room.messages = Message.getMessages(roomId)
+    }
+
     return Room;
   }
 
