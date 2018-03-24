@@ -3,8 +3,10 @@
     this.rooms = Room.all;
     this.messages = Message.all;
     this.currentRoom = {};
+    this.currentMessages = [];
     this.setCurrentRoom = (room) => {
-      console.log("hi");
+      console.log(Message.getMessages(room));
+      this.currentMessages = Message.getMessages(room);
     }
   }
 

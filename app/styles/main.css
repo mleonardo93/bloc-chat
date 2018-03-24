@@ -1,0 +1,12 @@
+.container {
+  display: grid;
+  grid-template-columns: [1] 100px [2] auto [4] 50px [5] 40px;
+  grid-template-rows: auto;
+}
+
+.room-box {
+  grid-column: 1;
+}
+.messages {
+  grid-column: 2;
+}

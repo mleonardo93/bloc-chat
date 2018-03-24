@@ -1,16 +1,16 @@
-<h1>Home Page</h1>
-<aside class="room-box">
-  <ul>
-    <li ng-repeat="room in room.rooms"><a ng-click="room.setCurrentRoom()">{{ room.$value }}</a></li>
-  </ul>
-  <div ng-controller="ModalCtrl as modals">
-    <button type="button" class="btn" ng-click="modals.open()">New Room</button>
-  </div>
-</aside>
-<div>
-  <div ng-repeat="message in room.messages">
-    <p><strong>{{ message.username }}</strong></p>
-    <p>{{ message.content }}</p>
+<div class="container">
+  <aside class="item room-box">
+    <ul>
+      <li ng-repeat="roomObj in room.rooms"><a ng-click="room.setCurrentRoom(roomObj.$id)">{{ roomObj.$value }}</a></li>
+    </ul>
+    <div ng-controller="ModalCtrl as modals">
+      <button type="button" class="btn" ng-click="modals.open()">New Room</button>
+    </div>
+  </aside>
+  <div class="item messages">
+    <div ng-repeat="message in room.currentMessages">
+      <p><strong>{{ message.username }}</strong></p>
+      <p>{{ message.content }}</p>
+    </div>
   </div>
 </div>
-<button ng-click="console.log('test')">hihi</button>
