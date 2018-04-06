@@ -1,13 +1,15 @@
 (function() {
-  function UserModalInstance($uibModalInstance, Room) {
-    this.cancel = function() {
-      $uibModalInstance.dismiss("dismiss")
-    };
-    this.add = function(roomName) {
-      $uibModalInstance.close(roomName)
+  function UserModalInstance($uibModalInstance, $cookies) {
+    this.set = function (username) {
+      if (username.trim().length == 0) {
+        alert("real name ples");
+      } else {
+        $cookies.put("username", username.trim());
+        $uibModalInstance.dismiss();
+      }
     }
   }
   angular
     .module("blocChat")
-    .controller("UserModalInstance", ["$uibModalInstance", UserModalInstance])
+    .controller("UserModalInstance", ["$uibModalInstance", "$cookies", UserModalInstance])
 })()

@@ -7,15 +7,15 @@
          });
 
     $stateProvider
-        .state('home', {
-            url: '/',
-            controller: 'RoomCtrl as room',
-            templateUrl: '/templates/home.html'
+        .state("home", {
+            url: "/",
+            controller: "RoomCtrl as room",
+            templateUrl: "/templates/home.html"
         })
   }
   function BlocChatCookies($cookies, $uibModal) {
-      var currentUser = $cookies.get('blocChatCurrentUser');
-      if (!currentUser || currentUser === '') {
+      var currentUser = $cookies.get("username");
+      if (!currentUser || currentUser === "") {
         console.log("cookiectrl working")
         var userInstance = $uibModal.open({
           templateUrl: "/templates/usermodal.html",
@@ -26,7 +26,7 @@
 
 
   angular
-        .module("blocChat", ["ui.router", "firebase", "ui.bootstrap", "$uibModal", "ngCookies"])
+        .module("blocChat", ["ui.router", "firebase", "ui.bootstrap", "ngCookies"])
         .config(config)
-        .run(['$cookies', BlocChatCookies]);
+        .run(["$cookies", "$uibModal", BlocChatCookies]);
 })();
